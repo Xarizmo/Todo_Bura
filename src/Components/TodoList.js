@@ -1,13 +1,21 @@
 import React from "react";
 import TodoListItem from "./TodoListItem";
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
+  
+  // создаем массив jsx элементов
+  const elements = todos.map((item) => {
+    return (
+      <li>
+        <TodoListItem { ...item } />
+      </li>
+    )
+  });
+  
   return (
     <ul>
-      <li><TodoListItem label='Drink Coffee'/></li>
-      <li><TodoListItem
-        label='Create React App'
-        important /></li>
+      {/*добавляем все элементы разом*/}
+      { elements }
     </ul>
   );
 };
