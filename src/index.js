@@ -1,34 +1,36 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
-// вынесем в отдельный компонент список дел
-// все React компоненты пишутся с большой буквы. React будет воспринимать их как кастомные html теги
 const TodoList = () => {
+  const items = ['Learn React', 'Drink coffee', 'Build Awesome App'];
   return (
     <ul>
-      <li>Learn React</li>
-      <li>Build Awesome App</li>
+      <li>{items[0]}</li>
+      <li>{items[1]}</li>
+      <li>{items[2]}</li>
     </ul>
   );
 };
 
-// вынесем в отдельный компонент заголовок
 const AppHeader = () => {
   return (
     <h1>My Todo List</h1>
   );
 };
 
-// вынесем в отдельный компонент панель поиска
 const SearchPanel = () => {
+  const searchText = 'Type here to search';
+  const searchStyle = {
+    fontSize: '20px'
+  };
   return (
-    <input placeholder='search'/>
+    <input
+      style={searchStyle}
+      placeholder={searchText}
+    />
   );
 };
 
-// теперь для того, чтобы использовать компонент - достаточно использовать тег компонента в нужном месте
-
-// создадим общий компонент App для всего нашего приложения
 const App = () => {
   return (
     <div>
@@ -39,7 +41,6 @@ const App = () => {
   );
 };
 
-// ReactDOM принимает в качестве 1го параметра - React элемент, а не компонент(!)
 ReactDOM.render(<App/>,
   document.getElementById('root'));
 
