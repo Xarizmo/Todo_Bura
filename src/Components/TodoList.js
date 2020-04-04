@@ -3,18 +3,17 @@ import TodoListItem from "./TodoListItem";
 
 const TodoList = ({ todos }) => {
   
-  // создаем массив jsx элементов
   const elements = todos.map((item) => {
+    const { id, ...itemProps } = item;
     return (
-      <li>
-        <TodoListItem { ...item } />
+      <li key={id}>
+        <TodoListItem { ...itemProps } />
       </li>
     )
   });
   
   return (
     <ul>
-      {/*добавляем все элементы разом*/}
       { elements }
     </ul>
   );
