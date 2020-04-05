@@ -13,14 +13,18 @@ export default class TodoListItem extends Component {
     };
     
     this.onLabelClick = () => {
-      this.setState({
-        done: true,
+      this.setState(({ done }) => {
+        return {
+          done: !done
+        }
       });
     };
     
     this.onExclamationButtonClick = () => {
-      this.setState({
-        important: true
+      this.setState(({ important }) => {
+        return {
+          important: !important
+        };
       });
     };
   }
