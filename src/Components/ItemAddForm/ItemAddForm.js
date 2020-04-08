@@ -9,7 +9,7 @@ export default class ItemAddForm extends Component {
   
   onLabelChange = (e) => {
     this.setState({
-      label: e.target.value.toUpperCase()
+      label: e.target.value.slice(0, 1).toUpperCase() + e.target.value.slice(1)
     });
   };
   
@@ -31,7 +31,7 @@ export default class ItemAddForm extends Component {
                placeholder='What needs to be done'
                value={this.state.label} />
         <button
-          className='btn btn-outline-secondary'>
+          className='btn btn-outline-secondary col-auto'>
           Add Item
         </button>
       </form>
